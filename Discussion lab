@@ -1,0 +1,43 @@
+def calculate_area(length, width):
+    """
+    Calculate the area of a rectangle.
+    
+    Parameters:
+    length (float): The length of the rectangle.
+    width (float): The width of the rectangle.
+    
+    Returns:
+    float: The area of the rectangle.
+    """
+    # Error handling: Check if the inputs are non-negative
+    if length < 0 or width < 0:
+        raise ValueError("Length and width must be non-negative.")
+    
+    # Calculate area
+    area = length * width
+    return area
+
+# Desk Check Example
+def desk_check_calculate_area():
+    """
+    Function to desk check the calculate_area function with sample data.
+    """
+    # Test cases
+    test_cases = [
+        (5, 10),     # Normal case
+        (0, 10),     # Edge case: one dimension is zero
+        (5, 0),      # Edge case: one dimension is zero
+        (-5, 10),    # Error case: negative length
+        (5, -10),    # Error case: negative width
+        (0, 0),      # Edge case: both dimensions are zero
+    ]
+    
+    for length, width in test_cases:
+        try:
+            area = calculate_area(length, width)
+            print(f"Length: {length}, Width: {width} => Area: {area}")
+        except ValueError as e:
+            print(f"Length: {length}, Width: {width} => Error: {e}")
+
+# Run desk checking
+desk_check_calculate_area()
